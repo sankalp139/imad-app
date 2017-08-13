@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 var articles={
- articleone :{
+ articleOne :{
     title:"Article one",
     heading:"Article one",
     date:"August 12, 2017",
@@ -17,7 +17,7 @@ var articles={
             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
         </p> `
              },
-articletwo : { 
+articleTwo : { 
     title:"Article two",
     heading:"Article two",
     date:"August 13, 2017",
@@ -29,7 +29,7 @@ articletwo : {
             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
         </p> `
          },
-articlethree :{ 
+articleThree :{ 
    title:"Article three",
     heading:"Article three",
     date:"August 14, 2017",
