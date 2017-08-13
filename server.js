@@ -17,6 +17,7 @@ var articles={
             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
         </p> `
 },
+
 ` article-two :{ 
     title:"Article two",
     heading:"Article two",
