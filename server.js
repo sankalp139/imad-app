@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 var articles={
- `articl-eone :{
+ articleone :{
     title:"Article one",
     heading:"Article one",
     date:"August 12, 2017",
@@ -16,9 +16,8 @@ var articles={
          <p>
             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
         </p> `
-},
-
-` article-two :{ 
+             },
+articletwo : { 
     title:"Article two",
     heading:"Article two",
     date:"August 13, 2017",
@@ -28,17 +27,20 @@ var articles={
         </p>
          <p>
             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p> `},
-` article-three:{ title:"Article three",
+        </p> `
+         },
+articlethree :{ 
+   title:"Article three",
     heading:"Article three",
     date:"August 14, 2017",
     content:  
-     `<p>
+    ` <p>
             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
         </p>
          <p>
             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p> `},
+        </p> `
+        }
 };
 function CreateTemplate (data){
 var title=data.title;
