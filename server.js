@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var artices = {
+var articles = {
     'article-one' :{
         title:'article-one',
         heading:'Article one',
@@ -83,9 +83,9 @@ app.get('/counter',function(req,res){
   counter=counter+1;
   res.send(counter.toString());
 });
-// app.get('/',function(req,res){
-//  res.sendFile(path.join(_dirname,'ui','index.html'))   
-// });
+app.get('/',function(req,res){
+  res.sendFile(path.join(_dirname,'ui','index.html'))   
+ });
 
 app.get('/article-two',function(req,res){
  res.sendFile(path.join(_dirname,'ui','article-two.html'))   
