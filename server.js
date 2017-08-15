@@ -4,92 +4,12 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-var articles={
- articleOne :{
-    title:"Article one",
-    heading:"Article one",
-    date:"August 12, 2017",
-    content:  
-     `<p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>
-         <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p> `
-             },
-articleTwo : { 
-    title:"Article two",
-    heading:"Article two",
-    date:"August 13, 2017",
-    content:  
-     `<p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>
-         <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p> `
-         },
-articleThree :{ 
-   title:"Article three",
-    heading:"Article three",
-    date:"August 14, 2017",
-    content:  
-    ` <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>
-         <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p> `
-        }
-};
-function CreateTemplate (data){
-var title=data.title;
-var date=data.date;
-var heading=data.heading;
-var content=data.content;
-var htmlTemplate =
-   `<html>
-   <head>
-    <title>
-   ${title}
-    </title>
-     <meta name="viewport" content="width-device-width,initial-scale-1"/>
-      <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="container">
-        <div>
-           <a href="/">Home</a>
-        </div>
-        <hr/>
-        <h3>
-           ${heading}
-        </h3>
-        <div>
-         ${date}
-        </div>
-     ${content}
-        </div>
-    </body>
-    
-</html>
-`;
-return htmlTemplate;
 
-}
+var counter=0;
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
-app.get('/:articleName', function (req, res) {
-    var articleName=req.params.articleName;
-  res.send(CreateTemplate(articles[articleName]));
-});
-app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/counter',function(req,res){
+  counter=counter+1;
+  res.send(counter.toString());
 });
 
 app.get('/ui/style.css', function (req, res) {
