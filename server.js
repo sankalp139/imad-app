@@ -5,36 +5,34 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var artices ={
-    ` article-one:{
+var artices = {
+    'article-one' :{
         title:'article-one',
         heading:'Article one',
         date:'August 15',
         content:
-        `<p>
+       ` <p>
             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
         </p>
          <p>
             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>`
-    },
-     `article-two:{
+        </p>`} ,
+    'article-two':{
          title:'article-two',
         heading:'Article two',
         date:'August 16',
         content:
-        `<p>
+       ` <p>
             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
         </p>
          <p>
             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>`
-     },
-    ` article-three:{title:'article-three',
+        </p>`},
+    'article-three':{title:'article-three',
         heading:'Article three',
         date:'August 15',
         content:
-        `<p>
+       ` <p>
             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
         </p>
          <p>
