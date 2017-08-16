@@ -74,6 +74,11 @@ var htmlTemplate =
     </html>`;
     return htmlTemplate;
     }
+
+app.get('/',function(req,res){
+   res.sendFile(path.join(_dirname,'ui','index.html'));   
+  });
+
 app.get('/:articleName',function(req,res){
     var articleName=req.params.articleName;
  res.send(createTemplate(articles[articleName]));
@@ -83,9 +88,6 @@ app.get('/counter',function(req,res){
   counter=counter+1;
   res.send(counter.toString());
 });
-app.get('/',function(req,res){
-   res.sendFile(path.join(_dirname,'ui','index.html'));   
-  });
 
 app.get('/article-two',function(req,res){
  res.sendFile(path.join(_dirname,'ui','article-two.html'));   
