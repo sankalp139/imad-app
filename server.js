@@ -75,7 +75,7 @@ var htmlTemplate =
     return htmlTemplate;
     }
 
-app.get('/',function(req,res){
+app.get('/ui/',function(req,res){
    res.sendFile(path.join(_dirname,'ui','index.html'));   
   });
 
