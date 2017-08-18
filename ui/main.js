@@ -12,7 +12,7 @@ button.onclick = function(){
             }
         }
     };
-    request.open('GET','https://www.youtube.com/watch?v=kPuV0DrL4RY',true);
+    request.open('GET','http://sankalp139.imad.hasura-app.io/counter',true);
     //http://sankalp139.imad.hasura-app.io/counter
     
   request.send(null);
