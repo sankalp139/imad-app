@@ -2,9 +2,18 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var crypto= require('crypto');
+var bodyParser=require('body-parser');
 
+var config ={
+    user:'sankalp139',
+    database:'sankalp139',
+    host:'db.imad.hasura-app.io',
+    port:'5432',
+    password:process.emv.DB_PASSWORD
+};
 var app = express();
 app.use(morgan('combined'));
+app.use(bodyParser.json());
 
 var articles = {
     'article-one' :{
@@ -86,8 +95,10 @@ var htmlTemplate =
         var hashedstring = hash(req.params.input,'this is a random setring');
         res.send(hashedstring);
     });
-    app.get('/create-user', function(req,res){
-     var salt=crypto.getRandomBytes(128).toString('hex');
+    app.post('/create-user', function(req,res){
+        var username=req.body.username;
+        var password=req.body.password;
+     var salt = crypto.getRandomBytes(128).toString('hex');
      var dbstring=hash(password,salt);
      pool.query('INSERT INTO "user" (username,password) VALUES ($1,$2)',[username,dbstring],function(err,result){
          if(err){
