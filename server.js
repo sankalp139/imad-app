@@ -86,6 +86,19 @@ var htmlTemplate =
         var hashedstring = hash(req.params.input,'this is a random setring');
         res.send(hashedstring);
     });
+    app.get('/create-user', function(req,res){
+     var salt=crypto.getRandomBytes(128).toString('hex');
+     var dbstring=hash(password,salt);
+     pool.query('INSERT INTO "user" (username,password) VALUES ($1,$2)',[username,dbstring],function(err,result){
+         if(err){
+             res.status(500).send(err.toString());
+         }
+         else
+         {
+             res.send('user successfully created:'+ username);
+         }
+     });
+    });
 app.get('/',function(req,res){
    res.sendFile(path.join(__dirname,'ui','index.html'));   
   });
