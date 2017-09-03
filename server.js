@@ -76,9 +76,9 @@ var htmlTemplate =
     return htmlTemplate;
     }
    
-    function hash(input){
+    function hash(input,salt){
         // to hash the data taken
-        var hash=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
+        var hash=crypto.pbkdf2Sync(input, salt,10000,512,'sha512');
         return hash.toString('hex');
         
     }
