@@ -4,7 +4,7 @@ var path = require('path');
 var crypto= require('crypto');
 var bodyParser=require('body-parser');
 
-var config ={
+//var config ={
     user:'sankalp139',
     database:'sankalp139',
     host:'db.imad.hasura-app.io',
