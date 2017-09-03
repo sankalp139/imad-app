@@ -83,7 +83,7 @@ var htmlTemplate =
         
     }
      app.get('/hash/:input',function(req,res){
-        var hashedstring = hash(req.params.input,'salt');
+        var hashedstring = hash(req.params.input,'this is a random setring');
         res.send(hashedstring);
     });
 app.get('/',function(req,res){
