@@ -15,41 +15,41 @@ var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 
-var articles = {
-    'article-one' :{
-        title:'article-one',
-        heading:'Article one',
-        date:'August 15',
-        content:
-      ` <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>
-         <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>`} ,
-    'article-two':{
-         title:'article-two',
-        heading:'Article two',
-        date:'August 16',
-        content:
-      ` <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>
-         <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>`},
-    'article-three':{title:'article-three',
-        heading:'Article three',
-        date:'August 15',
-        content:
-      ` <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>
-         <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>`}
+// var articles = {
+//     'article-one' :{
+//         title:'article-one',
+//         heading:'Article one',
+//         date:'August 15',
+//         content:
+//       ` <p>
+//             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+//         </p>
+//          <p>
+//             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+//         </p>`} ,
+//     'article-two':{
+//          title:'article-two',
+//         heading:'Article two',
+//         date:'August 16',
+//         content:
+//       ` <p>
+//             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+//         </p>
+//          <p>
+//             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+//         </p>`},
+//     'article-three':{title:'article-three',
+//         heading:'Article three',
+//         date:'August 15',
+//         content:
+//       ` <p>
+//             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+//         </p>
+//          <p>
+//             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+//         </p>`}
     
-};
+// };
 
     app.post('/create-user', function(req,res){
         var username = req.body.username;
