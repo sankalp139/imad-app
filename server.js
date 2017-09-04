@@ -50,6 +50,22 @@ var articles = {
         </p>`}
     
 };
+
+    app.post('/create-user', function(req,res){
+        var username = req.body.username;
+        var password = req.body.password;
+     var salt=crypto.getRandomBytes(128).toString('hex');
+     var dbstring = hash(password,salt);
+     pool.query('INSERT INTO "user" (username,password) VALUES ($1,$2)',[username,dbstring],function(err,result){
+         if(err){
+             res.status(500).send(err.toString());
+         }
+         else
+         {
+             res.send('user successfully created:'+ username);
+         }
+     });
+    });
 function createTemplate(data){
     var title=data.title;
     var heading=data.heading;
@@ -95,21 +111,7 @@ app.get('/',function(req,res){
         var hashedstring = hash(req.params.input,'this is a random setring');
         res.send(hashedstring);
     });
-    app.post('/create-user', function(req,res){
-        var username = req.body.username;
-        var password = req.body.password;
-     var salt=crypto.getRandomBytes(128).toString('hex');
-     var dbstring = hash(password,salt);
-     pool.query('INSERT INTO "user" (username,password) VALUES ($1,$2)',[username,dbstring],function(err,result){
-         if(err){
-             res.status(500).send(err.toString());
-         }
-         else
-         {
-             res.send('user successfully created:'+ username);
-         }
-     });
-    });
+
 
 
 var counter = 0;
