@@ -15,73 +15,73 @@ var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 
-var articles = {
-    'article-one' :{
-        title:'article-one',
-        heading:'Article one',
-        date:'August 15',
-        content:
-       ` <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>
-         <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>`} ,
-    'article-two':{
-         title:'article-two',
-        heading:'Article two',
-        date:'August 16',
-        content:
-       ` <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>
-         <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>`},
-    'article-three':{title:'article-three',
-        heading:'Article three',
-        date:'August 15',
-        content:
-       ` <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>
-         <p>
-            This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
-        </p>`}
+// var articles = {
+//     'article-one' :{
+//         title:'article-one',
+//         heading:'Article one',
+//         date:'August 15',
+//         content:
+//       ` <p>
+//             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+//         </p>
+//          <p>
+//             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+//         </p>`} ,
+//     'article-two':{
+//          title:'article-two',
+//         heading:'Article two',
+//         date:'August 16',
+//         content:
+//       ` <p>
+//             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+//         </p>
+//          <p>
+//             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+//         </p>`},
+//     'article-three':{title:'article-three',
+//         heading:'Article three',
+//         date:'August 15',
+//         content:
+//       ` <p>
+//             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+//         </p>
+//          <p>
+//             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+//         </p>`}
     
-};
-function createTemplate(data){
-    var title=data.title;
-    var heading=data.heading;
-    var date=data.date;
-     var content=data.content;
-var htmlTemplate =
-`<html>
-    <head>
-    <title>
-            ${title}   
-    </title>
-     <meta name="viewport" content="width-device-width,initial-scale-1"/>
-      <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="container">
-        <div>
-          <a href="/">Home</a>
-        </div>
-        <hr/>
-        <h3>
-             ${heading}   
-        </h3>
-        <div>
-         ${date}   
-        </div>
-        ${content}
-        </div>
-    </body>
-    </html>`;
-    return htmlTemplate;
-    }
+// };
+// function createTemplate(data){
+//     var title=data.title;
+//     var heading=data.heading;
+//     var date=data.date;
+//      var content=data.content;
+// var htmlTemplate =
+// `<html>
+//     <head>
+//     <title>
+//         ${title}   
+//     </title>
+//      <meta name="viewport" content="width-device-width,initial-scale-1"/>
+//       <link href="/ui/style.css" rel="stylesheet" />
+//     </head>
+//     <body>
+//         <div class="container">
+//         <div>
+//           <a href="/">Home</a>
+//         </div>
+//         <hr/>
+//         <h3>
+//              ${heading}   
+//         </h3>
+//         <div>
+//          ${date}   
+//         </div>
+//         ${content}
+//         </div>
+//     </body>
+//     </html>`;
+//     return htmlTemplate;
+//     }
 app.get('/',function(req,res){
    res.sendFile(path.join(__dirname,'ui','index.html'));   
   });
