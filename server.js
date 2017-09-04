@@ -50,7 +50,7 @@ var articles = {
         </p>`}
     
 };
-//function createTemplate(data){
+function createTemplate(data){
     var title=data.title;
     var heading=data.heading;
     var date=data.date;
