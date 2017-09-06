@@ -96,7 +96,7 @@ app.use(bodyParser.json());
         }
      });
     });
-     var pool =new pool(config);
+  //   var pool =new pool(config);
     // app.get('/test-db',function(req,res)
     // {
     //  pool.query('SELECT * FROM test', function(err,result){
