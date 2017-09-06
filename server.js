@@ -66,6 +66,36 @@ app.use(bodyParser.json());
          }
      });
     });
+     app.post('/login', function(req,res){
+        var username = req.body.username;
+        var password = req.body.password;
+    
+     pool.query('SELECT * FROM  "user" WHERE  (username,password) VALUES ($1,$2)',[username,dbstring],function(err,result){
+         if(err){
+             res.status(500).send(err.toString());
+         }
+         else 
+         {
+             if(result.rows.length === 0)
+             {
+                 res.send(403).send('username and password match');
+             }
+             else{
+                 var dbstring= result.rows[0].password;
+                 var salt=dbstring.split('$')[2];
+                 var hashedPassword=hash(password,salt);
+                 if(hashedPassword==dbstring){
+            res.send('cridentials are correct');
+             
+                 }
+                 else
+                 {
+                     res.send(403).send('username and password match');
+                 }
+           }
+        }
+     });
+    });
 // function createTemplate(data){
 //     var title=data.title;
 //     var heading=data.heading;
