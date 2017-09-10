@@ -1,7 +1,7 @@
 //submit username and password
 
 var submit= document.getElementById('submit_btn'); 
-var register=document.getElementById('register_btn');
+var submit=document.getElementById('register_btn');
 submit.onclick = function()
 {
     //make a request to the server  and accept name
@@ -31,7 +31,7 @@ submit.onclick = function()
     request.setRequestHeader('Content-Type','application/json');
   request.send(JSON.stringify({username:username,password:password}));
 };
-    register.onclick =function()
+    submit.onclick =function()
     {
        var request = new XMLHttpRequest();
         
