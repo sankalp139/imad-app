@@ -78,7 +78,7 @@ var htmlTemplate =
              ${heading}   
         </h3>
         <div>
-         ${date}   
+         ${date.toDateString()}  
         </div>
         ${content}
         </div>
@@ -119,7 +119,7 @@ app.get('/',function(req,res){
         var username = req.body.username;
         var password = req.body.password;
     
-     pool.query('SELECT * FROM  "user" WHERE  (username,password) VALUES ($1,$2)',[username,dbstring],function(err,result){
+     pool.query('SELECT * FROM  "user" WHERE username = $1',[username],function(err,result){
          if(err){
              res.status(500).send(err.toString());
          }
