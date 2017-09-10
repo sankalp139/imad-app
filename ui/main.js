@@ -46,7 +46,7 @@ submit.onclick = function()
                   alert('Could not register the user');
                        }
                }
-        }
+        };
     
     
     
