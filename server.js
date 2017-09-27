@@ -15,12 +15,41 @@ var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 
-
-
-   
-    
-  
-function createTemplate(data){
+var articles = {
+   'article-one' :{
+        title:'article-one',
+        heading:'Article one',
+         date:'August 15',
+        content:
+      ` <p>
+             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+        </p>
+          <p>
+             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+         </p>`} ,
+     'article-two':{
+          title:'article-two',
+         heading:'Article two',
+         date:'August 16',
+         content:
+       ` <p>
+             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+         </p>
+          <p>
+             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+         </p>`},
+     'article-three':{title:'article-three',
+         heading:'Article three',
+         date:'August 15',
+         content:
+       ` <p>
+             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+         </p>
+          <p>
+             This is the content of my first article created for the purpose learning aplication development. This is the content of my first article created for the purpose learning aplication development and application development.
+        </p>`}
+ };
+  function createTemplate(data){
     var title=data.title;
     var heading=data.heading;
     var date=data.date;
@@ -55,64 +84,70 @@ var htmlTemplate =
 app.get('/',function(req,res){
    res.sendFile(path.join(__dirname,'ui','index.html'));   
   });
-    function hash(input,salt){
-        // to hash the data taken
-        var hash = crypto.pbkdf2Sync(input, salt,10000,512,'sha512');
-        return ['pbkdf2Sync','10000',salt,hash.toString('hex')].join('$');
+//     function hash(input,salt){
+//         // to hash the data taken
+//         var hash = crypto.pbkdf2Sync(input, salt,10000,512,'sha512');
+//         return ['pbkdf2Sync','10000',salt,hash.toString('hex')].join('$');
         
-    }
-     app.get('/hash/:input',function(req,res){
-        var hashedstring = hash(req.params.input,'this is a random string');
-        res.send(hashedstring);
-    });
- app.post('/create-user', function(req,res){
-        var username = req.body.username;
-        var password = req.body.password;
-     var salt=crypto.randomBytes(128).toString('hex');
-     var dbstring = hash(password,salt);
-     pool.query('INSERT INTO "user" (username,password) VALUES ($1,$2)',[username,dbstring],function(err,result){
-         if(err){
-             res.status(500).send(err.toString());
-         }
-         else
-         {
-             res.send('user successfully created:'+ username);
-         }
-     });
-    });
+//     }
+//      app.get('/hash/:input',function(req,res){
+//         var hashedstring = hash(req.params.input,'this is a random string');
+//         res.send(hashedstring);
+//     });
+//  app.post('/create-user', function(req,res){
+//         var username = req.body.username;
+//         var password = req.body.password;
+//      var salt=crypto.randomBytes(128).toString('hex');
+//      var dbstring = hash(password,salt);
+//      pool.query('INSERT INTO "user" (username,password) VALUES ($1,$2)',[username,dbstring],function(err,result){
+//          if(err){
+//              res.status(500).send(err.toString());
+//          }
+//          else
+//          {
+//              res.send('user successfully created:'+ username);
+//          }
+//      });
+//     });
  
-  app.post('/login', function(req,res){
-        var username = req.body.username;
-        var password = req.body.password;
+//   app.post('/login', function(req,res){
+//         var username = req.body.username;
+//         var password = req.body.password;
     
-     pool.query('SELECT * FROM  "user" WHERE username = $1',[username],function(err,result){
-         if(err){
-             res.status(500).send(err.toString());
-         }
-         else 
-         {
-             if(result.rows.length === 0)
-             {
-                 res.send(403).send('username and password match');
-             }
-             else{
-                 var dbstring= result.rows[0].password;
-                 var salt=dbstring.split('$')[2];
-                 var hashedPassword=hash(password,salt);
-                 if(hashedPassword==dbstring){
-            res.send('cridentials are correct');
+//      pool.query('SELECT * FROM  "user" WHERE username = $1',[username],function(err,result){
+//          if(err){
+//              res.status(500).send(err.toString());
+//          }
+//          else 
+//          {
+//              if(result.rows.length === 0)
+//              {
+//                  res.send(403).send('username and password match');
+//              }
+//              else{
+//                  var dbstring= result.rows[0].password;
+//                  var salt=dbstring.split('$')[2];
+//                  var hashedPassword=hash(password,salt);
+//                  if(hashedPassword==dbstring){
+//             res.send('cridentials are correct');
              
-                 }
-                 else
-                 {
-                     res.send(403).send('username and password match');
-                 }
-           }
-        }
-     });
-    });
+//                  }
+//                  else
+//                  {
+//                      res.send(403).send('username and password match');
+//                  }
+//           }
+//         }
+//      });
+//     });
 
-
+app.get('')
+var names=[];
+app.get('/submit-name', function(req,res){
+    var name = req.query.name;
+      names.push(name);
+      res.send(JSON.stringify(names));
+  });
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
