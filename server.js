@@ -141,7 +141,7 @@ app.get('/',function(req,res){
 //      });
 //     });
 
-app.get('')
+
 var names=[];
 app.get('/submit-name', function(req,res){
     var name = req.query.name;
