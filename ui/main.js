@@ -40,7 +40,7 @@ submit.onclick = function()
   request.send(JSON.stringify({username:username,password:password}));
 };
     var register=document.getElementById('register_btn');
-    submit.onclick =function()
+    register.onclick =function()
     {
        var request = new XMLHttpRequest();
         
