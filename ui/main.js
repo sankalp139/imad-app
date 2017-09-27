@@ -1,7 +1,15 @@
 //submit username and password
-
+function loadLoginForm () {
+    var loginHtml = `
+        <h3>Login/Register to unlock awesome features</h3>
+        <input type="text" id="username" placeholder="username" />
+        <input type="password" id="password" />
+        <br/><br/>
+        <input type="submit" id="login_btn" value="Login" />
+        <input type="submit" id="register_btn" value="Register" />
+        `}
+    document.getElementById('login_area').innerHTML = loginHtml;
 var submit= document.getElementById('submit_btn'); 
-var submit=document.getElementById('register_btn');
 submit.onclick = function()
 {
     //make a request to the server  and accept name
@@ -31,6 +39,7 @@ submit.onclick = function()
     request.setRequestHeader('Content-Type','application/json');
   request.send(JSON.stringify({username:username,password:password}));
 };
+    var register=document.getElementById('register_btn');
     submit.onclick =function()
     {
        var request = new XMLHttpRequest();
