@@ -58,7 +58,7 @@ submit.onclick = function()
                   alert('User created successfully');
                   register.value = 'Registered!';
                   } 
-                  else {
+                  else if(request.status===500) {
                   alert('Could not register the user');
                   register.value = 'Register';
                        }
