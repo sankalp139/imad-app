@@ -108,8 +108,8 @@ app.get('/',function(req,res){
             }
             else
             {
-                //var articleData=result.rows[0];
-                res.send(result.rows[0]);
+                var articleData=result.rows[0];
+                res.send(articleData);
             }
         }
         });  
