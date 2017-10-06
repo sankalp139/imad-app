@@ -144,6 +144,10 @@ app.get('/',function(req,res){
        res.status(400).send('You are not logged in');
    }
 });
+app.get('/logout', function (req, res) {
+   delete req.session.auth;
+   res.send('<html><body>Logged out!<br/><br/><a href="/">Back to home</a></body></html>');
+});
 
 var counter = 0;
   app.get('/counter',function(req,res){
