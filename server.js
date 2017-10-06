@@ -98,7 +98,7 @@ app.get('/',function(req,res){
      });
     });
     app.get('/blog', function(req,res){
-        pool.query('SELECT * FROM "article"'){
+        pool.query('SELECT * FROM "article"',function(err,result){
               if(err){
          res.status(500).send(err.toString());
         }else 
@@ -112,8 +112,8 @@ app.get('/',function(req,res){
                 res.send(createTemplate(articleData));
             }
         }
-            
-        }
+        });  
+        
     })
  
   app.post('/login', function(req,res){
