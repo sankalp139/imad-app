@@ -15,7 +15,7 @@ submit.onclick = function()
     //make a request to the server  and accept name
      var request= new XMLHttpRequest();
     request.onreadystatechange = function (){
-        if(request.readyState == XMLHttpRequest.DONE){
+        if(request.readyState == 4){
             if(request.status == 200){
       console.log('user has logged in');
            submit.value = 'Sucess!';
@@ -52,7 +52,7 @@ submit.onclick = function()
         
         // Capture the response and store it in a variable
         request.onreadystatechange = function () {
-          if (request.readyState === XMLHttpRequest.DONE) {
+          if (request.readyState === 4) {
               // Take some action
               if (request.status === 200) {
                   alert('User created successfully');
