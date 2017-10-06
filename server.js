@@ -97,6 +97,24 @@ app.get('/',function(req,res){
          }
      });
     });
+    app.get('/blog', function(req,res){
+        pool.query('SELECT * FROM "article"'){
+              if(err){
+         res.status(500).send(err.toString());
+        }else 
+        {
+            if(result.rows.length ===0){
+                res.status(404).send(' No Articles Found');
+            }
+            else
+            {
+                var articleData=result.rows[0];
+                res.send(createTemplate(articleData));
+            }
+        }
+            
+        }
+    })
  
   app.post('/login', function(req,res){
         var username = req.body.username;
