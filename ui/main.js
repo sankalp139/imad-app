@@ -20,12 +20,12 @@ submit.onclick = function()
       console.log('user has logged in');
            submit.value = 'Sucess!';
        alert('logged in successfully');
-            }else if(request.status == 403)
+            }else if(request.status === 403)
             {
                 alert('username/password is incorrect');
                 submit.value = 'Invalid credentials. Try again?';
             }
-            else if(request.status==500)
+            else if(request.status===500)
             
             {
             alert('something went wrong on the server'); 
