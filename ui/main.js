@@ -19,7 +19,7 @@ submit.onclick = function()
             if(request.status === 200){
       console.log('user has logged in');
            submit.value = 'Sucess!';
-           window.location.href ="http://sankalp139.imad.hasura-app.io/articles/article-one"
+           window.location.href ="http://sankalp139.imad.hasura-app.io/blog";
        alert('logged in successfully');
             }else if(request.status === 403)
             {
